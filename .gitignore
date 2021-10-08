@@ -6,3 +6,6 @@ Practice.ipynb
 
 #Mac
 .DS_Store
+
+#Python Cache
+__pycache__
