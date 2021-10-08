@@ -1,4 +1,8 @@
 #files
 Practice.ipynb
+
+#Jupyter Notebook
 .ipynb_checkpoints
 
+#Mac
+.DS_Store
