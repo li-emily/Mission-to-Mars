@@ -16,7 +16,7 @@
 ### 1) Scrape High-Resolution Mars Hemisphere Images and Titles
 Look for the scrape of the image URLs and titles into a dictionary that can then be added to the web app.
 ```
-for i in range(len(hemi_items)):
+for i in range(4):
     
     # Create empty dictionary to hold items
     hemisphere = {}
