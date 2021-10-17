@@ -9,14 +9,17 @@
 - Languages: Python 3.7.10, Javascript, HTML, CSS (Bootstrap)
 - Interface: Jupyter Notebook, Visual Studio Code
 - Environment: Miniconda
-- Packages and Software: Beautiful Soup, Splinter, ChromeDriverManager, Pandas, PyMongo, Flask, MongoDB
+- Packages and Software: Beautiful Soup, Splinter, ChromeDriverManager, Pandas, Regex, PyMongo, Flask, MongoDB
 - Data Source: [Astropedia](https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars)
 
 ## Results
 ### 1) Scrape High-Resolution Mars Hemisphere Images and Titles
 Look for the scrape of the image URLs and titles into a dictionary that can then be added to the web app.
+- _hemi_items_ (list of all hemispheres) was found using Beautiful Soup
+- _x_ (number of hemispheres) was found using Beautiful Soup and Regex
+
 ```
-for i in range(4):
+for i in range(x):
     
     # Create empty dictionary to hold items
     hemisphere = {}
