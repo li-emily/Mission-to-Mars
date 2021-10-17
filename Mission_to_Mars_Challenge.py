@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[2]:
 
 
 # Import Splinter and BeautifulSoup
@@ -9,9 +9,10 @@ from splinter import Browser
 from bs4 import BeautifulSoup as soup
 from webdriver_manager.chrome import ChromeDriverManager
 import pandas as pd
+import re
 
 
-# In[2]:
+# In[3]:
 
 
 executable_path = {'executable_path': ChromeDriverManager().install()}
@@ -250,7 +251,7 @@ df.to_html()
 
 # ### Hemispheres
 
-# In[24]:
+# In[4]:
 
 
 # 1. Use browser to visit the URL 
@@ -258,7 +259,7 @@ url = 'https://marshemispheres.com/'
 browser.visit(url)
 
 
-# In[25]:
+# In[5]:
 
 
 # Parse the resulting html with soup
@@ -266,7 +267,7 @@ html = browser.html
 hemi_soup = soup(html, 'html.parser')
 
 
-# In[29]:
+# In[6]:
 
 
 # 2. Create a list to hold the images and titles.
@@ -276,13 +277,32 @@ hemisphere_image_urls = []
 hemi_items = hemi_soup.find_all('h3')
 
 
-# In[30]:
+# In[7]:
+
+
+hemi_items
+
+
+# In[11]:
+
+
+num_str = hemi_soup.find(class_='count').text
+
+
+# In[22]:
+
+
+x = int(re.findall('[0-9]+', num_str)[0])
+x
+
+
+# In[23]:
 
 
 # 3. Write code to retrieve the image urls and titles for each hemisphere.
 
 # Create loop
-for i in range(4):
+for i in range(x):
     
     # Create empty dictionary to hold items
     hemisphere = {}
@@ -307,7 +327,7 @@ for i in range(4):
     browser.back()
 
 
-# In[31]:
+# In[21]:
 
 
 # 4. Print the list that holds the dictionary of each image url and title.

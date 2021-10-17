@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup as soup
 import pandas as pd
 import datetime as dt
 from webdriver_manager.chrome import ChromeDriverManager
+import re
 
 
 def scrape_all():
@@ -114,7 +115,11 @@ def hemispheres(browser):
     # Create list of all hemispheres
     hemi_items = hemi_soup.find_all('h3')  
 
-    for i in range(4):
+    # find number of hemispheres
+    num_str = hemi_soup.find(class_='count').text
+    x = int(re.findall('[0-9]+', num_str)[0])
+
+    for i in range(x):
         
         # Create empty dictionary to hold items
         hemisphere = {}
