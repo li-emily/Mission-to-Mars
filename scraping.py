@@ -114,7 +114,7 @@ def hemispheres(browser):
     # Create list of all hemispheres
     hemi_items = hemi_soup.find_all('h3')  
 
-    for i in range(len(hemi_items)):
+    for i in range(4):
         
         # Create empty dictionary to hold items
         hemisphere = {}
